@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { AuthGuard } from './auth.guard';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -14,23 +17,31 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginComponent,
-    // canActivate: [AuthGuard],
-    // data: {
-    //   isLogged: false
-    // }
+    canActivate: [AuthGuard],
+    data: {
+      isLogged: false
+    }
   },
   {
     path: "register",
     component: RegisterComponent,
-    // canActivate: [AuthGuard],
-    // data: {
-    //   isLogged: false
-    // }
+    canActivate: [AuthGuard],
+    data: {
+      isLogged: false
+    }
   },
-  // {
-  //   path: "**",
-  //   component: NotFoundComponent
-  // }
+  {
+    path: "profile/:id",
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
+    data: {
+      isLogged: true
+    }
+  },
+  {
+    path: "**",
+    component: NotfoundComponent
+  }
 ];
 
 @NgModule({

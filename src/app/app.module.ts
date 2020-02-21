@@ -9,21 +9,26 @@ import { HomeComponent } from './home/home.component';
 import { CoreModule } from './core/core.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
+import { NotfoundComponent } from './notfound/notfound.component';
+import { RecipeModule } from './recipe/recipe.module';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NotfoundComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
+    RecipeModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CoreModule
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

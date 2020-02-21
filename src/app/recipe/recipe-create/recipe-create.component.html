@@ -1,0 +1,60 @@
+  <form
+    #recipeCreateForm="ngForm"
+    (ngSubmit)="handleRecipeCreation(recipeCreateForm.value)"
+  >
+    <div class="form-group">
+      <label for="name">Recipe name:</label>
+      <input
+        #nameInput="ngModel"
+        ngModel
+        type="text"
+        id="name"
+        name="name"
+        class="form-control"
+        placeholder="Name"
+        required
+      />
+      <p class="error-message" *ngIf="nameInput.invalid && nameInput.touched">
+        Invalid name!
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea
+        #descriptionInput="ngModel"
+        ngModel
+        id="description"
+        name="description"
+        class="form-control"
+        placeholder="Description"
+        rows="20"
+        required
+      ></textarea>
+      <p
+        class="error-message"
+        *ngIf="descriptionInput.invalid && descriptionInput.touched"
+      >
+        Invalid description!
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="image">Image:</label>
+      <input
+        #imageInput="ngModel"
+        ngModel
+        type="text"
+        id="image"
+        name="image"
+        class="form-control"
+        placeholder="Image"
+        required
+      />
+      <p class="error-message" *ngIf="imageInput.invalid && imageInput.touched">
+        Invalid image!
+      </p>
+    </div>
+
+    <button [disabled]="recipeCreateForm.invalid" class="btn btn-success">
+      Create recipe
+    </button>
+  </form>

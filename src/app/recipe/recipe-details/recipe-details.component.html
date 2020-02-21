@@ -1,0 +1,6 @@
+<div *ngIf="recipe">
+    <p><img src="{{recipe.image}}"></p>
+    <p>{{recipe.name}}</p>
+    <p>{{recipe.description}}</p>
+    <p *ngIf="isCreator"><button class="btn btn-info" routerLink="/recipe/edit/{{recipe._id}}">Edit</button><p>
+</div>

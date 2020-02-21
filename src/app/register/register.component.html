@@ -1,6 +1,6 @@
 <form #registerForm="ngForm" (ngSubmit)="handleRegister(registerForm.value)">
     <div class="form-group">
-      <label for="username">Username</label>
+      <label for="username">Username:</label>
       <input
         #usernameInput="ngModel"
         ngModel
@@ -8,13 +8,13 @@
         id="username"
         name="username"
         class="form-control"
-        placeholder="username"
+        placeholder="Username"
         required
       />
       <p class="error-message" *ngIf="usernameInput.invalid && usernameInput.touched">Invalid username!</p>
     </div>
     <div class="form-group">
-      <label for="password">Password</label>
+      <label for="password">Password:</label>
       <input
         #passwordInput="ngModel"
         ngModel
@@ -22,7 +22,7 @@
         id="password"
         name="password"
         class="form-control"
-        placeholder="************"
+        placeholder="Password"
         required
       />
       <p class="error-message" *ngIf="passwordInput.invalid && passwordInput.touched">Invalid password!</p>

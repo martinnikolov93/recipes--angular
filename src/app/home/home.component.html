@@ -1,1 +1,18 @@
-<p>home works!</p>
+<div *ngIf="isLogged">
+  <div *ngIf="recipes">
+    <div *ngFor="let recipe of recipes">
+      <div class="row text-center">
+      <h3><a routerLink="recipe/details/{{ recipe._id }}">{{ recipe.name }}</a></h3>
+      <a routerLink="recipe/details/{{ recipe._id }}">
+        <img class="img-thumbnail" src="{{ recipe.image }}" />
+      </a>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!isLogged">
+  <img class="img-responsive img-thumbnail" src="../../assets/bg.jpg">
+  <h1 class="text-center">Log in to view this page</h1>
+</div>

@@ -1,32 +1,47 @@
-<form #loginForm="ngForm" (ngSubmit)="handleLogin(loginForm.value)">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input
-        #usernameInput="ngModel"
-        ngModel
-        type="text"
-        id="username"
-        name="username"
-        class="form-control"
-        placeholder="username"
-        required
-      />
-      <p class="error-message" *ngIf="usernameInput.invalid && usernameInput.touched">Invalid username!</p>
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        #passwordInput="ngModel"
-        ngModel
-        type="password"
-        id="password"
-        name="password"
-        class="form-control"
-        placeholder="************"
-        required
-      />
-      <p class="error-message" *ngIf="passwordInput.invalid && passwordInput.touched">Invalid password!</p>
-    </div>
+<form
+  #loginForm="ngForm"
+  (ngSubmit)="handleLogin(loginForm.value)"
+>
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input
+      #usernameInput="ngModel"
+      ngModel
+      type="text"
+      id="username"
+      name="username"
+      class="form-control"
+      placeholder="Username"
+      required
+    />
+    <p
+      class="error-message"
+      *ngIf="usernameInput.invalid && usernameInput.touched"
+    >
+      Invalid username!
+    </p>
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input
+      #passwordInput="ngModel"
+      ngModel
+      type="password"
+      id="password"
+      name="password"
+      class="form-control"
+      placeholder="Password"
+      required
+    />
+    <p
+      class="error-message"
+      *ngIf="passwordInput.invalid && passwordInput.touched"
+    >
+      Invalid password!
+    </p>
+  </div>
 
-    <button [disabled]="loginForm.invalid" class="btn btn-success">Login</button>
-  </form>
+  <button [disabled]="loginForm.invalid" class="btn btn-success">
+    Login
+  </button>
+</form>

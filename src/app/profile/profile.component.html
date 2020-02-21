@@ -1,0 +1,14 @@
+<div class="col-md-6">Username: {{ username }}</div>
+<div class="col-md-6">
+  <div>Your recipes:</div>
+  <div *ngIf="userRecipes">
+    <div *ngFor="let recipe of userRecipes">
+      <a href="/recipe/details/{{ recipe._id }}">{{ recipe.name }}</a>
+    </div>
+  </div>
+  <div *ngIf="userRecipes">
+    <div *ngIf="userRecipes.length === 0">
+      You don't have any recipes.
+    </div>
+  </div>
+</div>
