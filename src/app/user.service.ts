@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { RecipeService } from './recipe.service';
+import { LoaderServiceService } from './loader-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,8 @@ export class UserService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private loaderService: LoaderServiceService
     ) { }
   
   get getUserId() {
@@ -32,6 +34,8 @@ export class UserService {
   }
 
   register({ username, password }){
+    this.loaderService.showLoader();
+
     let url = "https://baas.kinvey.com/user/kid_r1Pn8XhsB"; 
     let data = { username, password };
     let httpOptions = {
@@ -48,11 +52,15 @@ export class UserService {
 
       this.isLoggedIn = true;
 
+      this.loaderService.hideLoader();
+
       this.router.navigate([""]);
     });
   }
 
   login({ username, password }){
+    this.loaderService.showLoader();
+
     let url = "https://baas.kinvey.com/user/kid_r1Pn8XhsB/login"; 
     let data = { username, password };
     let httpOptions = {
@@ -68,6 +76,8 @@ export class UserService {
       localStorage.setItem('id', userInfo["_id"]);
 
       this.isLoggedIn = true;
+
+      this.loaderService.hideLoader();
 
       this.router.navigate([""]);
     });

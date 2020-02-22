@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { UserService } from '../user.service';
+import { LoaderServiceService } from '../loader-service.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private recipeService: RecipeService,
-    private userService: UserService
+    private userService: UserService,
     ) { }
 
   ngOnInit(): void {

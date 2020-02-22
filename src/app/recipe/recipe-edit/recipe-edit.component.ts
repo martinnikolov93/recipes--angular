@@ -3,6 +3,7 @@ import { RecipeService } from 'src/app/recipe.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IRecipe } from 'src/app/shared/interfaces/recipe';
+import { LoaderServiceService } from 'src/app/loader-service.service';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -21,6 +22,7 @@ export class RecipeEditComponent implements OnInit {
 
   constructor(
     private recipeService: RecipeService,
+    private loaderService: LoaderServiceService,
     private activatedRoute: ActivatedRoute,
     private fb:FormBuilder,
     private router: Router
@@ -30,6 +32,8 @@ export class RecipeEditComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.activatedRoute.snapshot.params.id) {
+      this.loaderService.showLoader();
+
       this.recipeService.getRecipe(this.activatedRoute.snapshot.params.id).subscribe(recipeInfo => {
         this.recipe = recipeInfo;
 
@@ -42,6 +46,8 @@ export class RecipeEditComponent implements OnInit {
           description: [recipeInfo.description , [Validators.required]],
           image: [recipeInfo.image , [Validators.required]]
         })
+
+        this.loaderService.hideLoader();
         
       });
     }

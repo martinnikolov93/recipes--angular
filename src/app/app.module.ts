@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { RecipeModule } from './recipe/recipe.module';
 import { ProfileComponent } from './profile/profile.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ProfileComponent } from './profile/profile.component';
     RegisterComponent,
     NotfoundComponent,
     ProfileComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
